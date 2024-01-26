@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            box-sizing: border-box;/*보더로 설정하면 보더까지의 길이를 자동으로 계산해서 넣어줌*/
+            /*내가 전체 사이즈를 100*100으로 하고싶으면 콘텐츠를 100하면 안된다 보더랑 패딩 사이즈까지 생각을 해야함* = 100- 패딩*2 +보더*2*/
+            margin: 40px;
+            border: 3px solid #222; /*보더는  패딩처럼 사용하면 안됨*/
+            /* border-width: 1px 2px 3px 4px;/*요렇게 해야함 다시작성해야함 위에는 건들면ㅇ 안된다*/
+            /* border-top: 5px solid red; */ 
+            /* border-radius: 10px; */
+            border-top-left-radius: 10px;
+            padding: 20px 10px 5px 2px;/*시계방향으로 간다 만약 오른쪽만 적고 왼쪽 기입안하면 자동으로 대칭이 돼서 오른쪽 값이 들어간다 위아래도 같음*/
+            width: 100px;
+            height: 100px;
+            background-color: #aaa;
+            /* 순서지켜야해ㅐㅐㅐㅐㅐㅐㅐㅐㅐㅐㅐㅐㅐㅐㅐㅐㅐㅐㅐㅐㅐㅐㅐㅐㅐ 
+            실제 클릭이 가능한 공간은 padding까지*/
+        }
+        .text{
+            display: inline-block;
+            margin: 20px;
+            padding: 10px;
+            width: 100px;
+            height: 100px;
+            background-color: #222;
+            color: white;
+
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box">테스트</div>
+    <input type="text">
+    <span class="text">일반테스트</span>
+</body>
+</html>

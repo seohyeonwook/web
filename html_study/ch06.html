@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="get" action="">
+
+        <div>
+            <label for="username">아이디</label>
+            <input type="text" id="username" name="username"placeholder="아이디를 입력하세요">
+        </div>
+        <div>
+            <label for="password">비밀번호</label>
+            <input type="password" id="password"name="username"placeholder="비밀번호를 입력하세요">
+        </div>
+        <!-- id=변수명 같은거라고 생각 임의로 지어도 됨 -->
+        <div>
+            <input type="radio" id="age10" name="age" value="10">
+            <label for="age">10대</label>
+            <input type="radio" id="age20" name="age" value="20">
+            <label for="age">20대</label>
+            <input type="radio" id="age30" name="age" value="30">
+            <label for="age">30대</label>
+            <!-- 3개 다 클릭되니까 name속성으로 묶어야함 name = key값-->
+        </div>
+        <div>
+            <input type="checkbox" id="pgoneCheck"onchange="handleCheck(this)">
+            <label for="phone">연락처</label>
+            <input type="tel" id="phone" name="phone" disabled="true">
+            <script>
+              
+                function handleCheck(object) {
+                    const phoneInputObject = document.querySelector("#phone");
+                                                                    // # = id = phon 인 녀석의 객체를 다가지고와라 
+                                                                    // <input type="tel" id="phone" name="phone" disabled="true">
+                                                                    // 객체를 가지고 오면 속성을 가지고 올수 있다.
+                    phoneInputObject.disabled = !object.checked;
+                    if(!object.checked) {
+                        phoneInputObject.value="";
+                    }
+                }
+            </script>
+        </div>
+        <div>
+            <select name="size" id="size">
+    
+                <option value="">SS</option>
+                <option value="">S</option>
+                <option value="">M</option>
+                <option value="">L</option>
+                <option value="">XL</option>
+            </select>
+    
+            <input type="text" name="clothes" list="dataListTest">
+            <datalist id="dataListTest">
+                <option value="상의1">상의1</option>
+                <option value="상의2">상의2</option>
+                <option value="하의1">하의1</option>
+                <option value="하의2">하의2</option>
+            </datalist>
+        
+        </div>
+        <div>
+            <button type="button">중복확인</button>
+        </div>
+        <div>
+            <button type="submit">전송</button> 
+            <!-- //기본값이 submit -->
+        </div>
+    </form>
+</body>
+</html>
