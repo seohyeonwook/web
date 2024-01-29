@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* ---------------연결선택자----------------- */
+        .box1 p {
+            background-color: red;
+        }
+        /* box1 p<< p태그만  h1은 안됨 */
+        .box2 main p {
+            background-color: blue;
+        }
+
+        p {
+            background-color: pink;
+        }
+        /* 캐스캐이딩이라 p태그 전부 핑크가 적용되어야하는데
+          +개념이라 생각하자 box1 p는 2개 (class + type) 
+          box2 main p 는 3개 (class + type + type)라서 우선순위가
+           높다 */
+           /* ---------------자식선택자----------------- */
+        .box3 > p {
+            background-color: brown;
+        }
+    </style>
+</head>
+<!-- ---------------연결 선택자 기본형:상위요소 하위요소-->
+<body>
+    <div class="box1">
+        <p>박스1-1</p>
+        <h1>박스1-2</h1>
+        <main>
+            <p>박스3-1</p>
+        </main>
+    </div>
+
+    <div class="box2">
+        <p>박스2-1</p>
+        <main>
+            <p>박스2-2</p>
+        </main>
+    
+    </div>
+<!-- -------------자식선택자 기본형: 부모요소>자식요소 -->
+    <div class="box3">
+        <p>박스3-1</p>
+        <main>
+            <p>박스3-2</p>
+        </main>
+<!-- ---------인접 형제 선택자 기본형: 요소1+요소2 -->
+<!-- h1 + p - p중에 가장가까운거 선택해 -->
+
+<!-- --------형제 선택자 기본형: 요소1 ~ 요소2 -->
+<!-- h1 ~ p - p가 있으면 다 선택해 -->
+</body>
+</html>

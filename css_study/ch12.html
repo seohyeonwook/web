@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .orbox {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            margin: 100px auto;
+            border: 1px solid #222;
+            padding: 20px;
+            width: 400px;
+            height: 100px;
+        }
+/* 플렉스박스 레이아웃은 마스터해야함 */
+        .orbox > span {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .orbox > span::before, .orbox > span::after {   
+            display: flex;
+            content: "";
+            flex-grow: 1;
+            border-top: 1px solid #555;
+            width: 100px;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="orbox">
+        <span>또는</span>
+    </div>
+</body>
+</html>

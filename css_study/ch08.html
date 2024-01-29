@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input:active{
+            background-color: #222;
+        }/*클릭중이면 색바꿈 보통 버튼에 많이 사용*/
+
+        input:focus {
+            background-color: pink;
+        }/*클릭했을때 모양으로바꿔라 active보다 상위라서 active씹힘*/
+/* -------------버튼은 기본 스타일이있기때문에 다시 다 만들어줘--- */
+        button {
+            border: 1px solid red;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: red;
+        }
+
+        button:active {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <!--가상 클래스
+    active, hover, focus 많이 씀
+    active - 눌렀을때 색바꿔라
+    hover - 마우스 올렸을때 색바꿔라
+    focus - 초점이 맞추어 져있을때는 어떤모양으로 바꿔라 
+    버튼과 인풋에 가장많이씀 -->
+    <input type="text">
+    <button>확인</button>
+</body>
+</html>

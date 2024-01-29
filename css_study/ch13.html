@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;/*이거로 정렬*/
+            align-items: center;
+            /* 포지션 이제 안써도된다 겹쳐야 하는 경우에만 쓰고 앵간한건 
+            이제 플렉스로 해결해라 */
+            flex-wrap: wrap;
+            border: 1px solid #000;
+            height: 400px;
+        }
+        .box1 {
+            border: 1px solid #000;
+            width: 100px;
+            height: 100px;
+        }
+/* 플렉스
+1.플렉스는 자동적으로 우측방향으로 정렬시켜준다
+2.플렉스는 요소를 정렬하기 위해서 사용한다(justify-content,align-items이거두개거의사용)
+3.플렉스는 안에 요소를 전부다 블록레벨로 본다
+4.요소과 꽉차면 자동 줄바꿈(flex-wrap: wrap)
+
+주축과 교차축
+주축- 배치가 되어지는 방향 justify-content (행)
+교차축- 줄바꿈이 되는 기준이 align-items  (열??)
+     */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        
+    </div>
+    
+</body>
+</html>
