@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="search" value="테스트검색">
+    <input type="text" class="inputs">
+    <input type="text" class="inputs">
+
+    <script>// 옛날 방법
+        const searchInput = document.getElementById("search");//document에서 가지고 오겠다 =>id를 
+        //=> <input type="text" id="search" value="테스트검색">  를 가지고 와서 searchInput에 들어간다
+        // console.log(document.getElementById("search"));
+        console.log(searchInput.value);
+        searchInput.value = "검색내용";
+        
+        const inputs = document.getElementsByClassName("inputs");// 클래스는 복수개 생성가능해서 getElementsByClassName 는 여러개 가지고 온다는 뜻
+        // <input type="text" class="inputs">
+        // <input type="text" class="inputs"> 얘들의 index 넣는거
+        console.log(inputs);
+        inputs[0].value = "aaa";
+        inputs[1].value = "bbb";
+
+        const inputs2 = document.getElementsByTagName("input");
+        console.log(inputs2);
+
+        // 선택자를 통한 요소가져오기 //요즘 방법
+        const searchInput2 = document.querySelector("#search"); //#을쓰면 all안씀
+        const inputs3 = document.querySelector(".inputs");  //첫번째 .inputs 클래스 요소 .붙으면 클래스
+        const inputs4 = document.querySelector("input");    //첫번째 input 태그 요소 ->여러개 사용시 querySelector는 첫번째만 가지고옴
+        const inputs5 = document.querySelectorAll(".inputs");
+        const inputs6 = document.querySelectorAll("input");
+
+        
+
+    </script>
+</body>
+</html>
