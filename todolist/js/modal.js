@@ -46,6 +46,11 @@ function handleAddTodoModalOpen() {
     todoInput.value = "";
     submitButton.onclick = handleAddTodoSubmit;//만들어둔 함수 onclick에 넣는다
 
+    todoInput.onkeydown = (e) => {
+        if(e.ctrlkey && e.keyCode === 13) {
+            submitButton.click();
+        }
+    }
     modal.classList.add("modal-show");
 }
 
@@ -59,11 +64,17 @@ function handleEditTodoModalOpen(todoId) {
     let todoListJson = localStorage.getItem("todoList");
     let todoList = todoListJson != null ? JSON.parse(todoListJson) : new Array();
     
-    let findTodoByTodoId = todoList.filter(todo => todo.todoId === todoId);
+    let findTodoByTodoId = todoList.filter(todo => todo.todoId === todoId)[0];
 
 
     todoInput.value = findTodoByTodoId.content;
-    submitButton.onclick = handleEditTodoSubmit;
+    submitButton.onclick = () => handleEditTodoSubmit(todoId);//정의된 함수 대입
+
+    todoInput.onkeydown = (e) => {
+        if(e.ctrlkey && e.keyCode === 13) {
+            submitButton.click();
+        }
+    }
 
     modal.classList.add("modal-show");
 }
@@ -77,7 +88,7 @@ function convertDateKor(curruntDate) {//date라는 변수를 받아준다.
     return `${year}년 ${month}월 ${date}일 (${day})`;
 }
 
-function handleAddTodoSubmit() {
+function handleAddTodoSubmit() { //추가
     const modal = document.querySelector(".root-modal");
     const todoInput = document.querySelector(".todo-input");
     modal.classList.remove("modal-show");
@@ -102,9 +113,33 @@ function handleAddTodoSubmit() {
     getTodoList();
 }
 
-function handleEditTodoSubmit() {
+function handleEditTodoSubmit(todoId) { //수정
     const modal = document.querySelector(".root-modal");
     modal.classList.remove("modal-show");
+
+    let todoListJson = localStorage.getItem("todoList");
+    let todoList = todoListJson != null ? JSON.parse(todoListJson) : new Array();
+
+    let findIndex = -1;
+
+    for(let i = 0; i < todoList.length; i++) {
+        if(todoList[i].todoId ===todoId) {
+            findIndex = i;
+            break;
+        }
+    }
+
+    if(findIndex === -1 ) {
+        alert("수정오류!");
+        return;
+    }
+
+    todoList[findIndex].content = document.querySelector(".todo-input").value;
+    todoList[findIndex].date = convertDateKor(new Date());
+
+    localStorage.setItem("todoList", JSON.stringify(todoList));
+    getTodoList();
+
 }
 
 function handleCancelClick() {
