@@ -1,4 +1,4 @@
-function handleSubmitClick() {
+async function handleSubmitClick() {
     const dataInputs = document.querySelectorAll(".data-inputs");//all로 가지고 오면 배열로 가지고와서 dataInputs가 배열이 된다
     //querySelectorAll 객체를 선택할수있다 객체 = 태그하나하나 ex) body,input,button같은 태그
     const data = {//객체만들기
@@ -19,16 +19,46 @@ function handleSubmitClick() {
         body: jsonData
     };
 
-    const p = fetch("http://localhost:8080/insert_and_select/data/addition",option) //포스트맨 페이지랑 같다 요청이라고 생각하자
-    //data/addition일로 가라
-    p.then((response) => {//매개변수 마음대로 지어도 됨
-        response.json()
-        .then((json) => {
-            console.log(json)
-        });
-    });
+    try {// await사용하면 try사용해야함
+        const response = await fetch("http://localhost:8080/insert_and_select/data/addition",option); //포스트맨 페이지랑 같다 요청이라고 생각하자
+        //data/addition일로 가라
 
-    console.log("test");
+        // fetch() 함수를 사용하여 서버에 HTTP 요청을 보냅니다. 
+        // 이 요청은 "http://localhost:8080/insert_and_select/data/addition"로
+        // 보내지며, option 객체에 지정된 옵션을 사용합니다. 
+        // 이때 option 객체에는 요청에 필요한 다양한 옵션이 포함될 수 있습니다.
+        // 요청이 성공하면, response 객체가 반환됩니다
+
+        if(!response.ok) {
+            throw await response.json();
+        }
+
+        console.log(response);
+    
+        const json = await response.json();
+
+        console.log(json);// 아래랑 같다 아래는 promise방법 이건 async 방법
+
+        console.log("test");
+
+    } catch(error) {
+        console.log(error);
+        alert(error.errorMessage);//alert=알림창
+    }
+
+
+    //  fetch("http://localhost:8080/insert_and_select/data/addition",option)
+    // .then((response) => {//매개변수 마음대로 지어도 됨
+    //     response.json()
+    //     .then((json) => {
+    //         console.log(json)
+    //     });
+    // }).catch((error) => {
+    //     console.log("프로미스 예외처리");
+    //     console.log(error);
+    // });
+
+    
     
 
     //option 말고 그냥   method: "post",
